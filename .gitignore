@@ -1,3 +1,5 @@
 **/__pycache__/
 **/env/
 **/libs/
+**/node_modules/
+**/.next/
