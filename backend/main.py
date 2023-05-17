@@ -1,5 +1,4 @@
 from fastapi import FastAPI
-
 from scrapper import reader
 
 app = FastAPI()
