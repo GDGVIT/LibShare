@@ -5,6 +5,71 @@
   font-family: "Sora";
 }
 
+body {
+  margin: 0;
+}
+::-webkit-scrollbar {
+  width: 0px;
+  background-color: transparent;
+}
+
+.package-heading {
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: white;
+  padding-bottom: 0.5em;
+}
+.package-version {
+  color: #707070;
+  font-weight: 400;
+  font-size: 0.7rem;
+}
+
+.package-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 2em;
+  width: 100%;
+}
+
+.package-title {
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: #363636;
+  padding-bottom: 0.5em;
+}
+
+.package {
+  display: flex;
+  flex-direction: column;
+  background-color: #f9f7ed;
+
+  width: 326px;
+  height: 91px;
+  border-radius: 12px;
+  align-items: flex-start;
+  padding: 12px;
+}
+
+.package-holder {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  gap: 2em 1em;
+  padding-bottom: 1em;
+  width: 100%;
+}
+
+.sub-heading {
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.7rem;
+  color: #707070;
+
+  padding-top: 2em;
+}
+
 .container {
   width: calc(100vw-8px);
   display: flex;
@@ -61,6 +126,7 @@
   gap: 4em;
   width: 800px;
   align-items: center;
+  margin-bottom: 2em;
 }
 
 .install-button {
