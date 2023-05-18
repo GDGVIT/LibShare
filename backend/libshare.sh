@@ -2,7 +2,7 @@
 
 trap killgroup SIGINT
 
-killgroup(){
+killgroup() {
   echo killing...
   kill 0
 }
