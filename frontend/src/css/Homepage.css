@@ -152,3 +152,15 @@ body {
   cursor: pointer;
   flex: 0 1 160px;
 }
+
+input::-webkit-input-placeholder { /* Edge */
+  color: #ffffff;
+}
+
+input:-ms-input-placeholder { /* Internet Explorer */
+  color: #ffffff;
+}
+
+input::placeholder {
+  color: #ffffff;
+}
