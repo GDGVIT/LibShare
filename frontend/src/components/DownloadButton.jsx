@@ -13,10 +13,10 @@ function DownloadButton({fileURL, fileName}) {
     };
 
     return (
-        <button onClick={handleDownload} className="downloadBtn">
+        <div onClick={handleDownload} className="downloadBtn">
             <img src={downloadIcon} alt="Download"/>
             <p>Install</p>
-        </button>
+        </div>
     )
 }
 

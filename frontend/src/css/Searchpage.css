@@ -7,6 +7,7 @@
 
 body {
   margin: 0;
+  padding-bottom: 5rem;
 }
 ::-webkit-scrollbar {
   width: 0px;
@@ -16,8 +17,7 @@ body {
 
 .container {
   width: calc(100vw-8px);
-  gap: 4em;
-  padding-bottom: 10rem;
+  padding-bottom: 1rem;
 }
 
 .searchbar {
@@ -61,8 +61,8 @@ body {
 }
 
 .search-text {
-  margin-top: 5rem;
-  margin-left: 3rem;
+  align-self: start;
+  margin-left: 5vw;
   font-style: normal;
 }
 
@@ -88,7 +88,5 @@ input::placeholder {
 }
 
 .pkgcard {
-  margin-bottom: 2rem;
-  padding-left: 3rem;
-  padding-right: 10rem;
+  margin-top: 2rem;
 }

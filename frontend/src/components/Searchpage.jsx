@@ -1,32 +1,74 @@
 import "../css/Searchpage.css";
+import { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import PackageDetailCard from "./PackageDetailCard";
 
-function Searchpage({searchQuery}) {
+function Searchpage() {
+
+  const { query } = useParams();
+  const navigate = useNavigate();
+  const [searchQuery, setSearchQuery] = useState(query);
+  const [jsonData, setJsonData] = useState(null);
+  const [searchCount, setSearchCount] = useState(null);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    navigate(`/search/${searchQuery}`);
+  }
+
+  useEffect(() => {
+
+    const fetchData = async () => {
+      try {
+        const response = await fetch('http://localhost:8080/data', {
+          method: 'POST',
+        });
+
+        if(!response.ok) {
+          throw new Error('Failed to fetch data. Make sure server is running in the background on port 8080.');
+        }
+
+        const data = await response.json();
+        setJsonData(data.data);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    fetchData();
+    setSearchCount(Object.keys(jsonData).length);
+  }, [jsonData, setJsonData, setSearchCount]);
+
   return (
     <>
       <div className="container">
         <div className="navbar-searchpage">
           <div className="navbar-element">LibShare</div>
-          <input
-          type="text"
-          className="searchbar"
-          value={searchQuery}
-          placeholder="Search for Packages"
-        />
+          <form className="searchForm" onSubmit={handleSubmit}>
+            <input
+            type="text"
+            className="searchbar"
+            value={searchQuery}
+            placeholder="Search for Packages"
+            onChange={(e) => setSearchQuery(e.target.value)}
+            />
+          </form>
           <div className="navbar-element">Browse all packages</div>
         </div>
         <div className="search-text">
-          <p className="search-heading"><b>Search Results </b>for {searchQuery}</p>
-          <p className="search-desc">Displaying {} results</p>
+          <p className="search-heading"><b>Search Results </b>for {query}</p>
+          <p className="search-desc">Displaying {searchCount} results</p>
         </div>
       </div>
-      <div className="pkgcard">
-        <PackageDetailCard
-        name="Example File"
-        version="1.0.0.0"
-        description="Hahahahaha this is a very well defined description of a file that is going to get downloaded in some shit ass hackathon that is going to prove useless because in the end nothing is gonna matter for nobody. We're too snall, and hurt, and broken, and in general imperfect machines who have no purpose but try to think we do."
-        fileUrl="http://localhost:8080/" />
-      </div>
+      {Object.entries(jsonData).map(([language, pkgNames]) => (
+        pkgNames.map((pkgName, index) => (
+          <PackageDetailCard
+          languageName={language}
+          pkgName={pkgName}
+          fileUrl={`http://localhost:8080/data/${language}/${pkgName}/`}
+          />
+        ))
+      ))}
     </>
   );
 }

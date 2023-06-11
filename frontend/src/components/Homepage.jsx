@@ -1,6 +1,18 @@
 import "../css/Homepage.css";
 import Package from "./PackageCard";
+import { useNavigate } from 'react-router-dom';
+import { useState } from "react";
+
 function Homepage() {
+
+  const [searchQuery, setSearchQuery] = useState("");
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    navigate(`/search/${searchQuery}`);
+  }
+
   return (
     <>
       <div className="container">
@@ -11,11 +23,14 @@ function Homepage() {
         <div className="heading">
           The LibShare Distribution Package registry
         </div>
-        <input
-          type="text"
-          className="searchbar"
-          placeholder="Search for Packages"
-        />
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            className="searchbar"
+            placeholder="Search for Packages"
+            onChange={(e) => {setSearchQuery(e.target.value)}}
+          />
+        </form>
         <div className="button-holder">
           <a href="" className="install-button">
             Install
