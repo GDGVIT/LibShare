@@ -25,7 +25,7 @@ function Searchpage() {
         });
 
         if(!response.ok) {
-          throw new Error('Failed to fetch data. Make sure server is running in the background on port 8080.');
+          throw new Error('Failed to fetch data. Make sure server is running on port 8080.');
         }
 
         const data = await response.json();
@@ -37,6 +37,35 @@ function Searchpage() {
 
     fetchData();
     setSearchCount(Object.keys(jsonData).length);
+
+    const filterResults = () => {
+      if (jsonData) {
+        let filteredData = {};
+        
+        for (const lang in jsonData) {
+          const pkgs = jsonData[lang];
+          if (lang.toLowerCase().includes(searchQuery.toLowerCase())) {
+            filteredData[lang] = pkgs;
+            continue;
+          }
+
+          pkgs.map((pkg, index) => {
+            if (pkg.toLowerCase().includes(searchQuery.toLowerCase()))
+              if (filteredData.hasOwnProperty(lang)) filteredData[lang].push(pkg);
+              else {
+                const d = [];
+                d.push(pkg);
+                filteredData[lang] = d;
+              }
+          });
+        }
+
+        setJsonData(filteredData);
+      }
+      filterResults();
+    };
+
+    filterResults();
   }, [jsonData, setJsonData, setSearchCount]);
 
   return (
