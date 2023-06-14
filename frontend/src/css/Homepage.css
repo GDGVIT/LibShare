@@ -15,7 +15,7 @@ body {
 
 .package-heading {
   font-weight: 600;
-  font-size: 1.2rem;
+  font-size: 2.5rem;
   color: white;
   padding-bottom: 0.5em;
 }
@@ -49,7 +49,7 @@ body {
   height: 91px;
   border-radius: 12px;
   align-items: flex-start;
-  padding: 12px;
+  padding: 1.5rem 1.5rem 0 1.5rem;
 }
 
 .package-holder {
@@ -76,6 +76,7 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 4em;
+  padding-bottom: 10rem;
 }
 
 .searchbar {
@@ -150,4 +151,16 @@ body {
   text-decoration: none;
   cursor: pointer;
   flex: 0 1 160px;
+}
+
+input::-webkit-input-placeholder { /* Edge */
+  color: #ffffff;
+}
+
+input:-ms-input-placeholder { /* Internet Explorer */
+  color: #ffffff;
+}
+
+input::placeholder {
+  color: #ffffff;
 }

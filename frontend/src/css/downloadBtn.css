@@ -1,0 +1,20 @@
+.downloadBtn {
+    background-color: #282828;
+    display: flex;
+    justify-content: space-between;
+    width: 7vw;
+    padding: 1vw;
+    border-radius: 1vw;
+    align-items: center;
+}
+
+.downloadBtn > p {
+    font-family: "Sora";
+    font-size: 1rem;
+    color: white;
+}
+
+.downloadBtn > img {
+    height: 100%;
+    width: auto;
+}

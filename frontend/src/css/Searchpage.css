@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Sora&display=swap");
+
+:root {
+  box-sizing: border-box;
+  font-family: "Sora";
+}
+
+body {
+  margin: 0;
+  padding-bottom: 5rem;
+}
+::-webkit-scrollbar {
+  width: 0px;
+  background-color: transparent;
+}
+
+
+.container {
+  width: calc(100vw-8px);
+  padding-bottom: 1rem;
+}
+
+.searchbar {
+  width: 30em;
+  padding: 22px 30px 22px 30px;
+  font-size: 1.5rem;
+  color: #282828;
+  border-radius: 12px;
+  appearance: none;
+  border: none;
+  background-color: #f9f7ed;
+}
+
+.searchbar:focus {
+  outline: none;
+}
+
+.searchbar::placeholder {
+  color: #282828;
+  font-weight: 600;
+}
+
+.navbar-searchpage {
+  padding: 2rem 0 2rem 0;  
+  background-color: #282828;
+  width: 100vw;
+  min-height: 3vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.navbar-element {
+  color: white;
+  text-align: left;
+  padding: 2em 3em 2em 3em; /*top right bottom left*/
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.search-text {
+  align-self: start;
+  margin-left: 5vw;
+  font-style: normal;
+}
+
+.search-heading {
+    font-size: 1.8rem;
+}
+
+.search-desc {
+    color: #707070;
+    font-size: 1rem;
+}
+
+input::-webkit-input-placeholder { /* Edge */
+  color: #ffffff;
+}
+
+input:-ms-input-placeholder { /* Internet Explorer */
+  color: #ffffff;
+}
+
+input::placeholder {
+  color: #ffffff;
+}
+
+.pkgcard {
+  margin-top: 2rem;
+}
